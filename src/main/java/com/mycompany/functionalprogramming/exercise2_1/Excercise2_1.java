@@ -14,12 +14,16 @@ public class Excercise2_1 {
     
     final static Function<Double, Function <Double, Double>> add = a -> (b -> a+b);
     final static Function<Double, Function <Double, Double>> substract = a -> (b -> a-b);
-    final static Function<Double, Double> square = x -> x*x;
     final static BinaryOperator mult = a -> (b -> a*b);
     final static BinaryOperator div = a -> (b -> a/b);
     final static Function<Double, Double> sqrt = x -> Math.sqrt(x);
 
-
+    //====================SQUARE ROOT OF A NUMBER BY NEWTON'S METHOD=========================================================================================
+    final static Function<Double, Double> abs = Math::abs;
+    final static Function<Double, Double> square = a -> Math.pow(a, 2);
+    final static Function<Double, Function<Double, Boolean>> good_enough = guess -> (x -> (abs.apply(square.apply(guess) - x) < 0.0001? true: false));
+    final static Function<Double, Function<Double, Double>> avg = a -> (b -> (a+b)/2);
+    final static Function<Double, Function<Double, Double>> improve = guess -> (x -> avg.apply(guess).apply(x/guess));
     
     static Function<Integer, Integer> compose(final Function<Integer, Integer> f1, final Function<Integer, Integer> f2){
         
@@ -93,6 +97,8 @@ public class Excercise2_1 {
             return y;
         else return z;
     }
+
+
     
     
     public static void main(String[] args){
@@ -182,6 +188,9 @@ public class Excercise2_1 {
         Double example = rectangleTen.apply(5.0);
         Function<Double, Function<Double, Function<Double, Function<Double, Double>>>> sqrDistance = x11 -> (y1 -> (x22 -> (y2 -> Math.pow(x22-x11,2) + Math.pow(y2-y1,2))));
         Function<Double, Function<Double, Function<Double, Double>>> sumSqrOfTwoGreatest = a -> (b -> (c -> Math.pow(greatest(a, b, c), 2) + Math.pow(secondGreatest(a, b, c),2)));
+
+
+
 
 
         
