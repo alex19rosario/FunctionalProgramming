@@ -24,6 +24,8 @@ public class Excercise2_1 {
     final static Function<Double, Function<Double, Boolean>> good_enough = guess -> (x -> (abs.apply(square.apply(guess) - x) < 0.0001? true: false));
     final static Function<Double, Function<Double, Double>> avg = a -> (b -> (a+b)/2);
     final static Function<Double, Function<Double, Double>> improve = guess -> (x -> avg.apply(guess).apply(x/guess));
+
+    final static Function<Double, Function<Double, Double>> improve_cube = guess -> (x -> ((x/square.apply(guess)) + 2.0*guess)/3.0);
     final static Function<Double, Function<Double, Boolean>> imp_good_enough = guess -> (x -> (abs.apply(improve.apply(guess).apply(x) - guess) < 0.0001? true: false));
     public final static  Function<Double, Function<Double, Double>> sqrt_iter = guess -> (x -> good_enough.apply(guess).apply(x) == true? guess: Excercise2_1.sqrt_iter.apply(improve.apply(guess).apply(x)).apply(x));
     public final static Function<Double, Function<Double, Double>> imp_sqrt_iter = guess -> (x -> imp_good_enough.apply(guess).apply(x) == true? guess: Excercise2_1.imp_sqrt_iter.apply(improve.apply(guess).apply(x)).apply(x));

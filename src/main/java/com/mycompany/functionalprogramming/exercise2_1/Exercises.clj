@@ -52,3 +52,6 @@
 
 ;;SI. EXERCISE 1.7, PAGE 33. IMPROVING THE GOOD ENOUGH METHOD.
 (defn good_enough? [guess, x] (< (abs (- guess (improve guess x))) (* guess 0.0001)))
+
+;;SI. EXERCISE 1.8, PAGE 33. NEWTON'S METHOD FOR CUBE ROOTS
+(defn improve_2 [guess, x] (/ (+ (/ x (sqr guess)) (* 2 guess)) 3))
