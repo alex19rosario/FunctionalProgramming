@@ -24,7 +24,13 @@ public class Excercise2_1 {
     final static Function<Double, Function<Double, Boolean>> good_enough = guess -> (x -> (abs.apply(square.apply(guess) - x) < 0.0001? true: false));
     final static Function<Double, Function<Double, Double>> avg = a -> (b -> (a+b)/2);
     final static Function<Double, Function<Double, Double>> improve = guess -> (x -> avg.apply(guess).apply(x/guess));
-    
+    final static Function<Double, Function<Double, Boolean>> imp_good_enough = guess -> (x -> (abs.apply(improve.apply(guess).apply(x) - guess) < 0.0001? true: false));
+    public final static  Function<Double, Function<Double, Double>> sqrt_iter = guess -> (x -> good_enough.apply(guess).apply(x) == true? guess: Excercise2_1.sqrt_iter.apply(improve.apply(guess).apply(x)).apply(x));
+    public final static Function<Double, Function<Double, Double>> imp_sqrt_iter = guess -> (x -> imp_good_enough.apply(guess).apply(x) == true? guess: Excercise2_1.imp_sqrt_iter.apply(improve.apply(guess).apply(x)).apply(x));
+    public final static Function<Double, Double> sqrt_newton = x -> sqrt_iter.apply(1.0).apply(x);
+    public final static Function<Double, Double> imp_sqrt_newton = x -> imp_sqrt_iter.apply(1.0).apply(x);
+    //=========================================================================================================================================================
+    public static final Function<Integer, Integer> fact = n -> n == 0? 1: n * Excercise2_1.fact.apply(n-1);
     static Function<Integer, Integer> compose(final Function<Integer, Integer> f1, final Function<Integer, Integer> f2){
         
         return new Function<Integer, Integer>(){
@@ -80,7 +86,7 @@ public class Excercise2_1 {
         return x == 0 ? 1 : x * factorial(x - 1);
     }
 
-    public static final Function<Integer, Integer> fact = n -> n == 0? 1: n * Excercise2_1.fact.apply(n-1);
+
     
     public static Double greatest(Double x, Double y, Double z){
         if(x > y && x > z)
@@ -210,6 +216,8 @@ public class Excercise2_1 {
         System.out.println(fact.apply(5));
         System.out.println(sqrDistance.apply(0.0).apply(0.0).apply(0.0).apply(5.0));
         System.out.println(sumSqrOfTwoGreatest.apply(3.0).apply(2.0).apply(1.0));
-        
+        System.out.println(sqrt_newton.apply(25.0));
+        System.out.println(square.apply(sqrt_newton.apply(0.00005)));
+        System.out.println(square.apply(imp_sqrt_newton.apply(0.00005)));
     }
 }

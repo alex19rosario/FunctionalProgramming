@@ -12,7 +12,8 @@
                                   (or (and (> y x) (< y z)) (and (> y z) (< y x))) y
                                   :else z))
 
-
+;;THIS FUNCTION RETURNS THE SUM OF THE SQUARE OF THE LARGEST NUMBERS BETWEEN THREE NUMBERS
+(defn sumSqrOfTwoGreatest [x, y, z] (+ (sqr (greatest x, y, z)) (sqr (second_greatest x, y, z))))
 
 ;;=====================SQUARE ROOT OF A NUMBER BY NEWTON'S METHOD============================
 
@@ -32,18 +33,22 @@
 (defn avg [x, y] (/ (+ x y) 2))
 
 ;;THIS FUNCTION IMPROVE THE GUESS BY AVERAGING
-(defn improve-guess [guess x] (avg guess (/ x guess)))
+(defn improve [guess x] (avg guess (/ x guess)))
 
 ;;THIS FUNCTION RETURNS THE SQUARE BY GUESSING AND IMPROVING
 (defn sqrt-iter [guess, x]
   (if (good-enough? guess x)
     guess
-    (sqrt-iter (improve-guess guess x) x)))
+    (sqrt-iter (improve guess x) x)))
 
 ;;THIS FUNCTION RETURNS THE SQUARE, BUT JUST ASKING FOR THE NUMBER
 (defn sqrt [x] (sqrt-iter 1 x))
 
 ;;===========================================================================================
+;;NEW IF
+(defn new-if [predicate, then-clause, else-clause] (cond
+                                                     predicate then-clause
+                                                     :else else-clause))
 
-;;THIS FUNCTION RETURNS THE SUM OF THE SQUARE OF THE LARGEST NUMBERS BETWEEN THREE NUMBERS
-(defn sumSqrOfTwoGreatest [x, y, z] (+ (sqr (greatest x, y, z)) (sqr (second_greatest x, y, z))))
+;;SI. EXERCISE 1.7, PAGE 33. IMPROVING THE GOOD ENOUGH METHOD.
+(defn good_enough? [guess, x] (< (abs (- guess (improve guess x))) (* guess 0.0001)))
