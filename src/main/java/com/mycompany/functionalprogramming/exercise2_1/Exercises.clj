@@ -55,3 +55,6 @@
 
 ;;SI. EXERCISE 1.8, PAGE 33. NEWTON'S METHOD FOR CUBE ROOTS
 (defn improve_2 [guess, x] (/ (+ (/ x (sqr guess)) (* 2 guess)) 3))
+
+
+
