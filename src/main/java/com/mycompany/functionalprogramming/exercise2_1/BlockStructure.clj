@@ -1,6 +1,6 @@
 (ns com.mycompany.functionalprogramming.exercise2-1.BlockStructure)
 
-;;USING BLOCK STRUCTURE AND LEXICAL SCOPING WHICH ARE EXPLAINED IN PAGE 36
+;;USING BLOCK STRUCTURE AND LEXICAL SCOPING, WHICH ARE EXPLAINED IN PAGE 36
 (defn sqrt [x]
   (defn abs [a]
     (if (< a 0) (- a) a))
