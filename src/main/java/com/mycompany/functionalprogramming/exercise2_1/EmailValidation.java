@@ -2,7 +2,7 @@ package com.mycompany.functionalprogramming.exercise2_1;
 
 import java.util.regex.Pattern;
 
-public class EmailValidation {
+/*public class EmailValidation {
 
     static Pattern emailPattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$");
 
@@ -55,4 +55,4 @@ interface Result{
 
 interface Executable{
     void exec();
-}
+}*/
