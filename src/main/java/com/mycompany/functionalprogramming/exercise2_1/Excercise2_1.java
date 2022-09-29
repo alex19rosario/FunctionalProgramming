@@ -4,8 +4,6 @@
  */
 package com.mycompany.functionalprogramming.exercise2_1;
 
-import java.net.StandardSocketOptions;
-
 /**
  *
  * @author carlos
@@ -61,7 +59,7 @@ public class Excercise2_1 {
 //        return div.apply(add.apply(sqrt.apply(substract.apply(square.apply(b)).apply(mult.apply(4.0).apply(a*c)))).apply(b*(-1))).apply(2*a);
 //    }
     
-    static <T,U,V> Function<Function<U, V>, Function<Function<T, U>, Function<T, V>>> higherComp(){
+    public static <T,U,V> Function<Function<U, V>, Function<Function<T, U>, Function<T, V>>> higherComp(){
         return f -> (g -> (x -> (f.apply(g.apply(x)))));
     }
 
