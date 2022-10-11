@@ -27,6 +27,7 @@ public class PhoneValidationTest {
         mcase(() -> s.length() == 0, () -> failure("Phone must not be empty")),
         mcase(() -> !phonePattern.matcher(s).matches(), () -> failure("Phone "+ s + " is invalid")));
 
+    
 
     static Effect<String> success = s -> System.out.println("The number " + s + " has been registered");
 
