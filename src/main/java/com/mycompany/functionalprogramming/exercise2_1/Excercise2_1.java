@@ -196,10 +196,6 @@ public class Excercise2_1 {
         Function<Double, Function<Double, Function<Double, Function<Double, Double>>>> sqrDistance = x11 -> (y1 -> (x22 -> (y2 -> Math.pow(x22-x11,2) + Math.pow(y2-y1,2))));
         Function<Double, Function<Double, Function<Double, Double>>> sumSqrOfTwoGreatest = a -> (b -> (c -> Math.pow(greatest(a, b, c), 2) + Math.pow(secondGreatest(a, b, c),2)));
 
-
-
-
-
         
         System.out.println(x1.apply(3.0).apply(-5.0).apply(-1.0));
         System.out.println(x2.apply(3.0).apply(-5.0).apply(-1.0));
