@@ -31,7 +31,7 @@ public class Excercise2_1 {
     public final static Function<Double, Double> imp_sqrt_newton = x -> imp_sqrt_iter.apply(1.0).apply(x);
     //=========================================================================================================================================================
 
-    public static final Function<Integer, Integer> fact = n -> n == 0? 1: n * Excercise2_1.fact.apply(n-1);
+
     static Function<Integer, Integer> compose(final Function<Integer, Integer> f1, final Function<Integer, Integer> f2){
         
         return new Function<Integer, Integer>(){
@@ -86,8 +86,7 @@ public class Excercise2_1 {
     public static int factorial(int x){
         return x == 0 ? 1 : x * factorial(x - 1);
     }
-
-
+    public static final Function<Integer, Integer> fact = n -> n == 0? 1: n * Excercise2_1.fact.apply(n-1);
     
     public static Double greatest(Double x, Double y, Double z){
         if(x > y && x > z)
@@ -96,6 +95,14 @@ public class Excercise2_1 {
             return y;
         else return z;
     }
+
+    public static Function<Double, Function<Double, Function<Double, Double>>> greatest = x -> (y -> (z -> {
+        if(x > y && x > z)
+            return x;
+        if(y > x && y > z)
+            return y;
+        else return z;
+    }));
 
     public static Double secondGreatest(Double x, Double y, Double z){
         if((x > y && x < z) || (x > z && x < y))
