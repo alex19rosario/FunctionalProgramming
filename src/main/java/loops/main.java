@@ -77,6 +77,7 @@ public class main <T> {
         Function<Employee, String> extractName = Employee::getName;
         Function<Employee, Double> extractHeight = Employee::getHeight;
         Function<Employee, Double> extractSalary = Employee::getSalary;
+        Function<Double, Double> extractTax = s -> s*(0.82);
         Function<Employee, Character> extractFirstChar = e -> e.getName().charAt(0);
         Function<Employee, EmployeeDTO> extractEmployeeDTO = e -> new EmployeeDTO(e.getName(), e.getAge());
         Function<Employee, Integer> extractAge = Employee::getAge;
