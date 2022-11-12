@@ -10,6 +10,7 @@ package com.mycompany.functionalprogramming.exercise2_1;
  * @param <U>
  * @param <T>
  */
+@FunctionalInterface
 public interface Function <T,U> {
     U apply(T arg);
 }
