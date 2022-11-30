@@ -12,7 +12,7 @@
                                   (or (and (> y x) (< y z)) (and (> y z) (< y x))) y
                                   :else z))
 
-;;THIS FUNCTION RETURNS THE SUM OF THE SQUARE OF THE LARGEST NUMBERS BETWEEN THREE NUMBERS
+;;THIS FUNCTION RETURNS THE SUM OF THE SQUARE OF THE TWO LARGEST NUMBERS BETWEEN THREE NUMBERS
 (defn sumSqrOfTwoGreatest [x, y, z] (+ (sqr (greatest x, y, z)) (sqr (second_greatest x, y, z))))
 
 ;;=====================SQUARE ROOT OF A NUMBER BY NEWTON'S METHOD============================
@@ -55,6 +55,12 @@
 
 ;;SI. EXERCISE 1.8, PAGE 33. NEWTON'S METHOD FOR CUBE ROOTS
 (defn improve_2 [guess, x] (/ (+ (/ x (sqr guess)) (* 2 guess)) 3))
+
+;;FIBONACCI
+(defn fib [n] (cond
+                (= n 0) 0
+                (= n 1) 1
+                :else (+ (fib (- n 1)) (fib (- n 2)))))
 
 
 
